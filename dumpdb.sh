@@ -1,3 +1,5 @@
 #!/bin/sh
 
-docker exec guacamole_db_1 mysqldump guacamole_db > backup.sql
+. ./.env
+
+docker exec $DBCONT_NAME mysqldump $MYSQL_DATABASE > backup.sql
