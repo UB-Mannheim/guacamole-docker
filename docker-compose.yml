@@ -4,6 +4,8 @@ services:
     image: mysql:latest
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
+    ports:
+      - "127.0.0.1::33060:3306"
     volumes:
       - data-volume:/var/lib/mysql
   guacd:
