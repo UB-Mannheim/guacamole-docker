@@ -15,10 +15,6 @@ docker-compose up -d
 x-www-browser http://127.0.0.1:8080/guacamole
 ```
 
-## Reverse proxy using apache2
+## Reverse proxy using apache2 or nginx
 
-Make sure to `a2enmod proxy_http`. Add the following to a suitable `VirtualHost` configuration:
-```
-ProxyPass        /guacamole http://127.0.0.1:8080/guacamole
-ProxyPassReverse /guacamole http://127.0.0.1:8080/guacamole
-```
+https://guacamole.apache.org/doc/gug/proxying-guacamole.html
