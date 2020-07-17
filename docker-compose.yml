@@ -8,8 +8,14 @@ services:
       - "127.0.0.1::33060:3306"
     volumes:
       - data-volume:/var/lib/mysql
+    cap_add:
+      - SYS_NICE  # CAP_SYS_NICE
+    restart: unless-stopped
   guacd:
     image: guacamole/guacd:latest
+    depends_on:
+      - db
+    restart: unless-stopped
   guacamole:
     image: guacamole/guacamole:latest
     environment:
@@ -20,6 +26,9 @@ services:
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
     ports:
       - "127.0.0.1:8080:8080"
+    depends_on:
+      - guacd
+    restart: unless-stopped
 volumes:
   data-volume:
 
