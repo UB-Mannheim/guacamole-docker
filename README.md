@@ -12,7 +12,7 @@ docker-compose up -d
 # initialize database
 ./initdb.sh
 # open URL in browser
-x-www-browser http://127.0.0.1:8080/guacamole
+x-www-browser http://127.0.0.1:8380/guacamole
 ```
 
 ## Reverse proxy using apache2 or nginx
