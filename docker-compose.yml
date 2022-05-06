@@ -24,6 +24,7 @@ services:
       - MYSQL_DATABASE=$MYSQL_DATABASE
       - MYSQL_USER=$MYSQL_USER
       - MYSQL_PASSWORD=$MYSQL_PASSWORD
+      - LOG4J_FORMAT_MSG_NO_LOOKUPS=true
     ports:
       - "127.0.0.1:8080:8080"
     depends_on:
