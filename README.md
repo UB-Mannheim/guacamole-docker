@@ -17,4 +17,4 @@ x-www-browser http://127.0.0.1:8380/guacamole
 
 ## Reverse proxy using apache2 or nginx
 
-https://guacamole.apache.org/doc/gug/proxying-guacamole.html
+https://guacamole.apache.org/doc/gug/reverse-proxy.html
