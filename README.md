@@ -34,3 +34,15 @@ https://guacamole.apache.org/doc/gug/reverse-proxy.html
   </Location>
   SetEnvIf Request_URI "^/guacamole/tunnel" dontlog
 ```
+
+## Wake on LAN
+To allow sending WOL-packets through guacamole it is needed to configure
+guacamole's docker network bridge and general network settings by running
+```scripts/configure_docker_networks_for_wol.sh```.
+- rerun the script whenever the network device in guacamole's
+docker network changes (up/down?)
+- sending WOL-packets is limitted to the docker host's network
+
+Source:
+<https://frigi.ch/en/2022/07/wake-on-lan-from-guacamole-in-docker/>
+<https://github.com/dhutchison/container-images/blob/master/homebridge/configure_docker_networks_for_wol.sh>
