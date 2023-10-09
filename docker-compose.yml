@@ -1,7 +1,7 @@
 version: '2'
 services:
   db:
-    image: mysql:latest
+    image: mysql:8.0
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=1
     ports:
@@ -12,12 +12,13 @@ services:
       - SYS_NICE  # CAP_SYS_NICE
     restart: unless-stopped
   guacd:
-    image: guacamole/guacd:latest
+    image: guacamole/guacd:1.5.3
     depends_on:
       - db
     restart: unless-stopped
   guacamole:
-    image: guacamole/guacamole:latest
+    image: guacamole/guacamole:1.5.3
+    #image: a5fad0117bce
     environment:
       - GUACD_HOSTNAME=guacd
       - MYSQL_HOSTNAME=db
@@ -29,7 +30,7 @@ services:
       - "127.0.0.1:8380:8080"
     depends_on:
       - guacd
+      - db
     restart: unless-stopped
 volumes:
   data-volume:
-
